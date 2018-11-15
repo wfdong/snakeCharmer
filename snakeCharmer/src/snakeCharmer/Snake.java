@@ -14,7 +14,21 @@ public class Snake {
 	 * @return int[], first element is the x position, and second element is the y position
 	 */
 	public int[] lMove() {
-		
+		if(this.current_Direction==0) {
+			this.current_Direction = 3;
+			this.current_Position_x--;
+		}else if(this.current_Direction==1) {
+			this.current_Direction = 0;
+			this.current_Position_y++;
+		}else if(this.current_Direction==2) {
+			this.current_Direction = 1;
+			this.current_Position_x++;
+		}else if(this.current_Direction==3) {
+			this.current_Direction = 2;
+			this.current_Position_y--;
+		}
+		int[] position_after_lMove = {this.current_Position_x,this.current_Position_y};
+		return position_after_lMove;
 	}
 	
 	/*
@@ -22,7 +36,21 @@ public class Snake {
 	 * @return int[], first element is the x position, and second element is the y position
 	 */
 	public int[] rMove() {
-		
+		if(this.current_Direction==0) {
+			this.current_Direction = 1;
+			this.current_Position_x++;
+		}else if(this.current_Direction==1) {
+			this.current_Direction = 2;
+			this.current_Position_y--;
+		}else if(this.current_Direction==2) {
+			this.current_Direction = 3;
+			this.current_Position_x--;
+		}else if(this.current_Direction==3) {
+			this.current_Direction = 0;
+			this.current_Position_y++;
+		}
+		int[] position_after_rMove = {this.current_Position_x,this.current_Position_y};
+		return position_after_rMove;
 	}
 	
 	/*
@@ -30,8 +58,19 @@ public class Snake {
 	 */
 	public int[] getLMovePosition()
 	{
-		
-
+		int nextX = current_Position_x;
+		int nextY = current_Position_y;
+		if(this.current_Direction==0) {
+			nextX = this.current_Position_x-1;
+		}else if(this.current_Direction==1) {
+			nextY = this.current_Position_y+1;
+		}else if(this.current_Direction==2) {
+			nextX = this.current_Position_x+1;
+		}else if(this.current_Direction==3) {
+			nextY = this.current_Position_y-1;
+		}
+		int[] result = {nextX,nextY};
+		return result;
 	}
 	
 	/*
@@ -39,9 +78,21 @@ public class Snake {
 	 */
 	public int[] getRMovePosition()
 	{
-		
-
+		int nextX = current_Position_x;
+		int nextY = current_Position_y;
+		if(this.current_Direction==0) {
+			nextX = this.current_Position_x+1;
+		}else if(this.current_Direction==1) {
+			nextY = this.current_Position_y-1;
+		}else if(this.current_Direction==2) {
+			nextX = this.current_Position_x-1;
+		}else if(this.current_Direction==3) {
+			nextY = this.current_Position_y+1;
+		}
+		int[] result = {nextX,nextY};
+		return result;
 	}
+	
 	
 	public int getCurrent_Position_x() {
 		return current_Position_x;
